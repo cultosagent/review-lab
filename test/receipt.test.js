@@ -10,3 +10,7 @@ test("settles verified deliveries", () => {
 test("does not settle incomplete deliveries", () => {
   assert.equal(canSettle({ delivered: false, verified: true }), false);
 });
+
+test("does not settle unverified deliveries", () => {
+  assert.equal(canSettle({ delivered: true, verified: false }), false);
+});
